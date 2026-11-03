@@ -135,7 +135,7 @@ from double-feeding the pet.
 
 **Tests / coverage.** 12 tests for the extension: the focus state machine (grace period, return
 detection, single nudge, session start while unfocused, resets), the notification budget, status
-bar/menu/den rendering, and a full activation run against the `vscode` stub. Workspace total: 134
+bar/menu/den rendering, and a full activation run against the `vscode` stub. Workspace total: 133
 tests passing.
 
 **Deferred.** Publishing to the VS Code Marketplace and Open VSX (steps in RUNBOOK.md). An extension
@@ -145,3 +145,41 @@ icon. Testing inside a real VS Code instance in CI.
 earns the most trust — or loses it. We designed the extension so we can say, truthfully and
 checkably, that it never looks at your code. That promise is part of the product: privacy-by-design
 is what lets a developer leave Daemonling running all day without a second thought.
+
+## M4 — Web home (2026-11-03)
+
+**What was built.** `apps/web`: a React 19 + Vite PWA that works fully offline from an IndexedDB
+store. Screens: **Den** (animated SVG pet whose mood follows its condition — bob, sleepy, sad,
+sick shiver, cocoon, dance — plus meters, speech and actions), **Focus** (25/50/90 presets, optional
+task, live countdown, honest stop, break logging; completes the session when the timer hits zero),
+**Stats** (plain-SVG week bars with a goal line, streak/freeze/XP facts, species progress from
+weighted traits), **Journal** (the weekly letter plus recent moments), **Settings** (name, goal,
+bedtime/wake, time zone, vacation, light/dark/system theme, export/import JSON, start over).
+Warm light and dark palettes, mobile-first bottom tab bar, 44 px touch targets,
+`prefers-reduced-motion` honoured. Manifest, SVG icons and a hand-written service worker.
+`.github/workflows/pages.yml` deploys `apps/web/dist` once Pages is enabled.
+
+**Key decisions.** D-030 (hand-written service worker), D-031 (browser keeps its own pet; JSON
+export/import bridges devices), D-033 (no router or chart library).
+
+**What was hard.** Accessibility details that tests do not catch. An axe-core audit in headless
+Chromium found real issues on the first pass — the selected-tab colour missed AA contrast in light
+mode, `role="tablist"` on `<nav>` erased the navigation landmark, and `role="tabpanel"` on `<main>`
+was invalid. All fixed; the audit now reports zero violations on every screen in both themes. A
+subtler bug: the timer briefly showed 25:01 because the reducer clamps a session's start forward
+when the UI clock lags the last event by a few hundred milliseconds; the view now clamps too.
+
+**Tests / coverage.** 11 web tests: `timerView` (idle, countdown, done, clamping), the `<Focus>`
+component (start with preset and task, honest stop, auto-complete, break), den state mapping for
+every mood, `<Den>` rendering and petting, species shares, and a full `<App>` run over
+`fake-indexeddb` (hatch → focus → honest stop → every tab → keyboard tab navigation → settings
+validation → vacation → theme → start over). Production build: 87 KB gzipped JS.
+
+**Deferred.** Notifications in the browser (deliberately off for now). PNG icons for older
+platforms. A visual-regression baseline.
+
+**Founder's comment.** The web home is how most people will meet their daemon for the first time —
+no install, one link, a warm little room where an egg is waiting. It is also our promise made
+visible: a footer that says "your pet lives only in this browser" is only credible if the app works
+with the network cable pulled out, and it does. Getting accessibility right from day one matters to
+us; a companion meant to make work kinder should be usable by everyone.

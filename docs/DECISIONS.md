@@ -237,3 +237,41 @@ alternatives considered, why. Newest decisions are appended at the bottom of eac
 - **Alternatives:** `@vscode/test-electron` (downloads VS Code; needs a display and network in CI).
 - **Why:** Fast and offline; the remaining risk (real VS Code API behaviour) is small and covered by
   manual testing of the `.vsix`.
+
+## M4 — Web home
+
+### D-030 Hand-written service worker instead of `vite-plugin-pwa`
+
+- **Decision:** `apps/web/public/sw.js` (~40 lines): precache the shell, cache-first for same-origin
+  GETs, fall back to `index.html` offline. Registered only in production builds.
+- **Alternatives:** `vite-plugin-pwa` (Workbox).
+- **Why:** Fewer dependencies, easy to audit for the "no network calls" promise, and enough for a
+  single-page app with hashed assets.
+
+### D-031 The web app keeps its own pet (IndexedDB); export/import bridges devices
+
+- **Decision:** Browsers cannot read `~/.daemonling`, so the web home stores its own event log in
+  IndexedDB. `dmn export` → web "Import JSON" (and the reverse with `dmn import`) moves a pet between
+  them. Tabs stay in sync through a `BroadcastChannel`.
+- **Alternatives:** A local HTTP bridge from the CLI (a network listener on the user's machine —
+  more attack surface); cloud sync (out of scope for a local-first MVP; see ARCHITECTURE.md).
+- **Why:** Honest local-first behaviour with zero servers.
+
+### D-032 Display-time ticking
+
+- **Decision:** The app re-renders every second and applies a `TICK` in memory to show decay and
+  hibernation, without persisting an event each second.
+- **Why:** Live UI without bloating the log.
+
+### D-033 No router, no chart library
+
+- **Decision:** Five tabs with ARIA `tablist`/`tab`/`tabpanel` semantics and arrow-key navigation;
+  the week chart is plain SVG.
+- **Why:** 87 KB gzipped total, offline-friendly, and accessible by construction. An axe-core audit of
+  every screen in both themes reports zero violations.
+
+### D-034 Relative base path
+
+- **Decision:** `vite.config.ts` uses `base: './'`.
+- **Why:** The same build works at `https://<user>.github.io/daemonling/`, at a custom domain root,
+  or opened from any sub-path, with no per-environment configuration.

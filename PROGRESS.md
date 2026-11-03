@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M4 — web home (`apps/web`): React PWA with Den, Focus, Stats, Journal, Settings.
+**Next action:** M5 — finish developer extras: `docs/README-CARD.md`, profile-README Action snippet, journal surfaced (CLI + web done), extras tests.
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -53,11 +53,11 @@ Every checkpoint commit updates it.
 
 ## M4 — Web home
 
-- [ ] Vite + React PWA (manifest + hand-written service worker), IndexedDB store
-- [ ] Den, Focus, Stats, Journal, Settings screens
-- [ ] Themes (light/dark), a11y (AA contrast, keyboard, reduced motion), mobile-first
-- [ ] Component tests: timer + den state mapping
-- [ ] `.github/workflows/pages.yml`
+- [x] Vite + React PWA (manifest + hand-written service worker), IndexedDB store
+- [x] Den, Focus, Stats, Journal, Settings screens
+- [x] Themes (light/dark), a11y (AA contrast, keyboard, reduced motion), mobile-first
+- [x] Component tests: timer + den state mapping
+- [x] `.github/workflows/pages.yml`
 
 ## M5 — Developer-native extras
 
@@ -65,7 +65,7 @@ Every checkpoint commit updates it.
 - [ ] `docs/README-CARD.md`
 - [x] Commit treats via `dmn hook` + `dmn event commit` (built in M2)
 - [x] Rubber-duck mode `dmn duck` (built in M2)
-- [ ] Weekly journal in CLI and web
+- [x] Weekly journal in CLI and web
 - [ ] Tests: card SVG validity, duck selection, hook install/uninstall
 
 ## M6 — Document pack
