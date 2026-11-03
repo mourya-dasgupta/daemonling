@@ -163,6 +163,16 @@ describe('dmn end to end', () => {
     writeFileSync(join(b.cwd, 'bad.json'), '{"nope":1}');
     expect((await b.run('import', 'bad.json')).err).toContain('does not look like');
     expect((await b.run('import', 'missing.json')).err).toContain('Cannot read');
+    const fromExport = await harness().run(
+      'badge',
+      '--from',
+      join(b.cwd, 'in.json'),
+      '--out',
+      join(b.cwd, 'ci.svg'),
+    );
+    expect(fromExport.code).toBe(0);
+    expect(readFileSync(join(b.cwd, 'ci.svg'), 'utf8')).toContain('Export');
+    expect((await harness().run('badge', '--from', 'nope.json')).err).toContain('Cannot read');
     expect((await harness().run('export')).code).toBe(1);
   });
 

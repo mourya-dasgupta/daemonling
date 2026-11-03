@@ -275,3 +275,24 @@ alternatives considered, why. Newest decisions are appended at the bottom of eac
 - **Decision:** `vite.config.ts` uses `base: './'`.
 - **Why:** The same build works at `https://<user>.github.io/daemonling/`, at a custom domain root,
   or opened from any sub-path, with no per-environment configuration.
+
+## M5 — Developer-native extras
+
+### D-035 `dmn badge --from <export.json>` for CI
+
+- **Decision:** The card can be rendered from an export file, as of the export's last event.
+- **Alternatives:** A hosted badge service (requires uploading data — breaks the privacy promise).
+- **Why:** Lets users keep a profile card fresh in their own GitHub Actions while choosing exactly
+  what they publish.
+
+### D-036 Expressions that never suggest death
+
+- **Decision:** The "sick" pet has droopy, dizzy eyes rather than X-eyes; "sad" uses raised inner
+  brows (not angry ones).
+- **Why:** The pet never dies; the art must not imply it.
+
+### D-037 Rubber duck is always available
+
+- **Decision:** `dmn duck` works from day one; learning the `rubber-duck` trick (7-day streak) is a
+  celebration, not a gate. BYO-LLM duck mode stays on the roadmap only.
+- **Why:** Never withhold a genuinely useful debugging aid as a reward.

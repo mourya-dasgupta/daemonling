@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M5 — finish developer extras: `docs/README-CARD.md`, profile-README Action snippet, journal surfaced (CLI + web done), extras tests.
+**Next action:** M6 — write the document pack (README, GUIDE, RUNBOOK, ROADMAP, PORTFOLIO, PITCH + deck, DUE_DILIGENCE, PRODUCT_SPEC, GAME_DESIGN, ARCHITECTURE, SECURITY, CONTRIBUTING, CHANGELOG).
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -62,11 +62,11 @@ Every checkpoint commit updates it.
 ## M5 — Developer-native extras
 
 - [x] `renderCard(state)` README card + `dmn badge` (built in M2)
-- [ ] `docs/README-CARD.md`
+- [x] `docs/README-CARD.md`
 - [x] Commit treats via `dmn hook` + `dmn event commit` (built in M2)
 - [x] Rubber-duck mode `dmn duck` (built in M2)
 - [x] Weekly journal in CLI and web
-- [ ] Tests: card SVG validity, duck selection, hook install/uninstall
+- [x] Tests: card SVG validity, duck selection, hook install/uninstall
 
 ## M6 — Document pack
 

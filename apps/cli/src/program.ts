@@ -9,6 +9,7 @@ import {
   duckSummary,
   localDay,
   mondayOf,
+  replay,
   weekStats,
 } from '@daemonling/core';
 import type { PetEvent, PetState, Settings } from '@daemonling/core';
@@ -304,10 +305,26 @@ export function buildProgram(ctx: Context): Command {
     .command('badge')
     .description('write an SVG card of your daemon for your README')
     .option('-o, --out <file>', 'output file', 'pet.svg')
-    .action((opts: { out: string }) => {
-      const state = stateAtNow(requirePet(ctx), ctx.now());
+    .option('--from <export.json>', 'render from an export file instead of your local pet (for CI)')
+    .action((opts: { out: string; from?: string }) => {
+      let state: PetState;
+      let nowIso = ctx.now();
+      if (opts.from) {
+        let text: string;
+        try {
+          text = readFileSync(resolve(ctx.cwd, opts.from), 'utf8');
+        } catch {
+          throw new UserError(`Cannot read ${opts.from}.`);
+        }
+        const events = parseExport(text);
+        // An exported pet is shown as of its last event, so the card does not decay in CI.
+        state = replay(events);
+        nowIso = state.lastEventAt;
+      } else {
+        state = stateAtNow(requirePet(ctx), nowIso);
+      }
       const path = resolve(ctx.cwd, opts.out);
-      writeFileSync(path, renderCard(state, { nowIso: ctx.now() }));
+      writeFileSync(path, renderCard(state, { nowIso }));
       ctx.out(`Wrote ${path}\nEmbed it with: ![${state.name}](${opts.out})\n`);
     });
 

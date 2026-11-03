@@ -183,3 +183,40 @@ no install, one link, a warm little room where an egg is waiting. It is also our
 visible: a footer that says "your pet lives only in this browser" is only credible if the app works
 with the network cable pulled out, and it does. Getting accessibility right from day one matters to
 us; a companion meant to make work kinder should be usable by everyone.
+
+## M5 — Developer-native extras (2026-11-03)
+
+**What was built.** Most extras landed with the CLI in M2 and are now finished and documented:
+
+- **README card:** `renderCard(state)` produces a self-contained SVG (pet, name, species, stage,
+  streak, condition, satiety/mood bars, "fed by focus" footer, light/dark via
+  `prefers-color-scheme`). `dmn badge` writes it; new `dmn badge --from <export.json>` renders from
+  an export for CI. `docs/README-CARD.md` explains embedding in a profile README and includes a
+  GitHub Actions workflow. Example art in `docs/assets/` (card, the five species, all moods).
+- **Commit treats:** `dmn hook install|uninstall` manages a marked block in `.git/hooks/post-commit`
+  (preserving any existing hook) that runs `dmn event commit`; commits only count during an active
+  session (max 10/day).
+- **Rubber-duck mode:** `dmn duck` — 16 keyword rules plus 5 fallbacks, no repeats, and a summary of
+  what you said. Fully offline.
+- **Weekly journal:** in `dmn journal` and the web Journal tab.
+- Art polish: sad and sick expressions redrawn (D-036).
+
+**Key decisions.** D-035 (badge from export), D-036 (expressions), D-037 (duck never gated).
+
+**What was hard.** Keeping the card truly self-contained: GitHub serves README SVGs through an image
+proxy that blocks external resources and scripts, so everything (palette, fonts, theme switching)
+has to live inside one file and still look right in both themes.
+
+**Tests / coverage.** Card validity (parses as XML via DOMParser, contains the escaped name,
+species, stage and footer, no external URLs), duck question selection and summaries, hook
+install/uninstall/idempotence in a temporary git repository, and `badge --from`. Workspace: 143
+tests passing.
+
+**Deferred.** npm publication of the CLI (then the Actions snippet shrinks to one `npx` line).
+BYO-LLM duck (roadmap).
+
+**Founder's comment.** These are the features that make Daemonling feel like it was built by
+developers for developers: it notices commits, it celebrates green builds, it sits in your profile
+README, and it listens when you are stuck. Each one is small, but together they turn a cute pet into
+something that belongs in a developer's workflow — and every one of them works without sending a
+single byte off your machine.

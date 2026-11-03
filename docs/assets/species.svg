@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="655" height="160" viewBox="0 0 655 160" role="img" aria-label="The five Daemonling species"><title>The five Daemonling species</title><svg x="5" y="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="owlbyte-title" class="dl-svg dl-mood-happy dl-species-owlbyte dl-animated" style="--dl-body:#cfc8f3;--dl-accent:#6c5ce7;--dl-glow:#9fa8ff;--dl-ink:#2a2350;--dl-cheek:#f7a6c4"><title id="owlbyte-title">A owlbyte daemonling, feeling happy</title><defs><radialGradient id="owlbyte-glow"><stop offset="0" stop-color="#9fa8ff" stop-opacity=".9"/><stop offset="1" stop-color="#9fa8ff" stop-opacity="0"/></radialGradient></defs><style>
+.dl-svg .dl-body{fill:var(--dl-body)}
+.dl-svg .dl-accent{fill:var(--dl-accent)}
+.dl-svg .dl-ink{fill:var(--dl-ink)}
+.dl-svg .dl-line{stroke:var(--dl-ink);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-stem{stroke:var(--dl-accent);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-cheek{fill:var(--dl-cheek);opacity:.7}
+.dl-svg .dl-anim,.dl-svg .dl-tip{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dl-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes dl-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+@keyframes dl-shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
+@keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
+@keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
+.dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
+.dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
+.dl-animated.dl-mood-sad .dl-anim{animation:dl-breathe 5s ease-in-out infinite}
+.dl-animated.dl-mood-sick .dl-anim{animation:dl-shiver .6s linear infinite}
+.dl-animated.dl-mood-sleeping .dl-anim,.dl-animated.dl-mood-cocoon .dl-anim{animation:dl-breathe 4s ease-in-out infinite}
+.dl-animated.dl-mood-dance .dl-anim{animation:dl-dance .8s ease-in-out infinite}
+.dl-animated.dl-mood-egg .dl-anim{animation:dl-wobble 2.4s ease-in-out infinite}
+.dl-animated .dl-z{animation:dl-float 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.dl-svg *{animation:none!important}}
+</style><ellipse class="dl-glow" cx="60" cy="70" rx="56" ry="50" fill="url(#owlbyte-glow)"/><ellipse cx="60" cy="110" rx="26" ry="4" fill="#000" opacity=".12"/><g class="dl-anim"><path class="dl-accent" d="M34 46 l-4 -16 l14 10 z M86 46 l4 -16 l-14 10 z"/><path class="dl-stem" d="M48 40 Q42 26 40 14 M72 40 Q78 26 80 14"/><circle class="dl-accent dl-tip" cx="40" cy="14" r="4.5"/><circle class="dl-accent dl-tip" cx="80" cy="14" r="4.5"/><ellipse class="dl-body" cx="60" cy="70" rx="36" ry="31"/><path class="dl-line" d="M41 64 q6 -8 12 0 M67 64 q6 -8 12 0"/><ellipse class="dl-cheek" cx="38" cy="74" rx="6" ry="3.5"/><ellipse class="dl-cheek" cx="82" cy="74" rx="6" ry="3.5"/><path class="dl-line" d="M52 76 q8 9 16 0"/></g></svg><text x="65" y="146" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#7a6352">owlbyte</text><svg x="135" y="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="sprintail-title" class="dl-svg dl-mood-happy dl-species-sprintail dl-animated" style="--dl-body:#ffd29e;--dl-accent:#f0642d;--dl-glow:#ffd6a0;--dl-ink:#4a2511;--dl-cheek:#ff8f8f"><title id="sprintail-title">A sprintail daemonling, feeling happy</title><defs><radialGradient id="sprintail-glow"><stop offset="0" stop-color="#ffd6a0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd6a0" stop-opacity="0"/></radialGradient></defs><style>
+.dl-svg .dl-body{fill:var(--dl-body)}
+.dl-svg .dl-accent{fill:var(--dl-accent)}
+.dl-svg .dl-ink{fill:var(--dl-ink)}
+.dl-svg .dl-line{stroke:var(--dl-ink);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-stem{stroke:var(--dl-accent);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-cheek{fill:var(--dl-cheek);opacity:.7}
+.dl-svg .dl-anim,.dl-svg .dl-tip{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dl-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes dl-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+@keyframes dl-shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
+@keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
+@keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
+.dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
+.dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
+.dl-animated.dl-mood-sad .dl-anim{animation:dl-breathe 5s ease-in-out infinite}
+.dl-animated.dl-mood-sick .dl-anim{animation:dl-shiver .6s linear infinite}
+.dl-animated.dl-mood-sleeping .dl-anim,.dl-animated.dl-mood-cocoon .dl-anim{animation:dl-breathe 4s ease-in-out infinite}
+.dl-animated.dl-mood-dance .dl-anim{animation:dl-dance .8s ease-in-out infinite}
+.dl-animated.dl-mood-egg .dl-anim{animation:dl-wobble 2.4s ease-in-out infinite}
+.dl-animated .dl-z{animation:dl-float 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.dl-svg *{animation:none!important}}
+</style><ellipse class="dl-glow" cx="60" cy="70" rx="56" ry="50" fill="url(#sprintail-glow)"/><ellipse cx="60" cy="110" rx="26" ry="4" fill="#000" opacity=".12"/><g class="dl-anim"><path class="dl-accent" d="M88 84 q22 4 26 -14 q-4 14 -22 20 z"/><path class="dl-stem" d="M98 96 h14 M94 102 h10" opacity=".7"/><path class="dl-stem" d="M48 40 Q42 26 40 14 M72 40 Q78 26 80 14"/><circle class="dl-accent dl-tip" cx="40" cy="14" r="4.5"/><circle class="dl-accent dl-tip" cx="80" cy="14" r="4.5"/><ellipse class="dl-body" cx="60" cy="70" rx="36" ry="31"/><path class="dl-line" d="M41 64 q6 -8 12 0 M67 64 q6 -8 12 0"/><ellipse class="dl-cheek" cx="38" cy="74" rx="6" ry="3.5"/><ellipse class="dl-cheek" cx="82" cy="74" rx="6" ry="3.5"/><path class="dl-line" d="M52 76 q8 9 16 0"/></g></svg><text x="195" y="146" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#7a6352">sprintail</text><svg x="265" y="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="zenpaca-title" class="dl-svg dl-mood-happy dl-species-zenpaca dl-animated" style="--dl-body:#f6efe6;--dl-accent:#b88d62;--dl-glow:#f3e3c3;--dl-ink:#4b3a2a;--dl-cheek:#f5a9a0"><title id="zenpaca-title">A zenpaca daemonling, feeling happy</title><defs><radialGradient id="zenpaca-glow"><stop offset="0" stop-color="#f3e3c3" stop-opacity=".9"/><stop offset="1" stop-color="#f3e3c3" stop-opacity="0"/></radialGradient></defs><style>
+.dl-svg .dl-body{fill:var(--dl-body)}
+.dl-svg .dl-accent{fill:var(--dl-accent)}
+.dl-svg .dl-ink{fill:var(--dl-ink)}
+.dl-svg .dl-line{stroke:var(--dl-ink);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-stem{stroke:var(--dl-accent);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-cheek{fill:var(--dl-cheek);opacity:.7}
+.dl-svg .dl-anim,.dl-svg .dl-tip{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dl-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes dl-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+@keyframes dl-shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
+@keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
+@keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
+.dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
+.dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
+.dl-animated.dl-mood-sad .dl-anim{animation:dl-breathe 5s ease-in-out infinite}
+.dl-animated.dl-mood-sick .dl-anim{animation:dl-shiver .6s linear infinite}
+.dl-animated.dl-mood-sleeping .dl-anim,.dl-animated.dl-mood-cocoon .dl-anim{animation:dl-breathe 4s ease-in-out infinite}
+.dl-animated.dl-mood-dance .dl-anim{animation:dl-dance .8s ease-in-out infinite}
+.dl-animated.dl-mood-egg .dl-anim{animation:dl-wobble 2.4s ease-in-out infinite}
+.dl-animated .dl-z{animation:dl-float 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.dl-svg *{animation:none!important}}
+</style><ellipse class="dl-glow" cx="60" cy="70" rx="56" ry="50" fill="url(#zenpaca-glow)"/><ellipse cx="60" cy="110" rx="26" ry="4" fill="#000" opacity=".12"/><g class="dl-anim"><circle class="dl-body" cx="94.0" cy="70.0" r="11"/><circle class="dl-body" cx="86.0" cy="88.6" r="11"/><circle class="dl-body" cx="65.9" cy="98.6" r="11"/><circle class="dl-body" cx="43.0" cy="95.1" r="11"/><circle class="dl-body" cx="28.1" cy="79.9" r="11"/><circle class="dl-body" cx="28.1" cy="60.1" r="11"/><circle class="dl-body" cx="43.0" cy="44.9" r="11"/><circle class="dl-body" cx="65.9" cy="41.4" r="11"/><circle class="dl-body" cx="86.0" cy="51.4" r="11"/><path class="dl-stem" d="M48 40 Q42 26 40 14 M72 40 Q78 26 80 14"/><circle class="dl-accent dl-tip" cx="40" cy="14" r="4.5"/><circle class="dl-accent dl-tip" cx="80" cy="14" r="4.5"/><ellipse class="dl-body" cx="60" cy="70" rx="36" ry="31"/><path class="dl-line" d="M41 64 q6 -8 12 0 M67 64 q6 -8 12 0"/><ellipse class="dl-cheek" cx="38" cy="74" rx="6" ry="3.5"/><ellipse class="dl-cheek" cx="82" cy="74" rx="6" ry="3.5"/><path class="dl-line" d="M52 76 q8 9 16 0"/></g></svg><text x="325" y="146" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#7a6352">zenpaca</text><svg x="395" y="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="shipwyrm-title" class="dl-svg dl-mood-happy dl-species-shipwyrm dl-animated" style="--dl-body:#9fe0d6;--dl-accent:#1b8a78;--dl-glow:#a8f0e0;--dl-ink:#163a35;--dl-cheek:#ff9e9e"><title id="shipwyrm-title">A shipwyrm daemonling, feeling happy</title><defs><radialGradient id="shipwyrm-glow"><stop offset="0" stop-color="#a8f0e0" stop-opacity=".9"/><stop offset="1" stop-color="#a8f0e0" stop-opacity="0"/></radialGradient></defs><style>
+.dl-svg .dl-body{fill:var(--dl-body)}
+.dl-svg .dl-accent{fill:var(--dl-accent)}
+.dl-svg .dl-ink{fill:var(--dl-ink)}
+.dl-svg .dl-line{stroke:var(--dl-ink);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-stem{stroke:var(--dl-accent);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-cheek{fill:var(--dl-cheek);opacity:.7}
+.dl-svg .dl-anim,.dl-svg .dl-tip{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dl-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes dl-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+@keyframes dl-shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
+@keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
+@keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
+.dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
+.dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
+.dl-animated.dl-mood-sad .dl-anim{animation:dl-breathe 5s ease-in-out infinite}
+.dl-animated.dl-mood-sick .dl-anim{animation:dl-shiver .6s linear infinite}
+.dl-animated.dl-mood-sleeping .dl-anim,.dl-animated.dl-mood-cocoon .dl-anim{animation:dl-breathe 4s ease-in-out infinite}
+.dl-animated.dl-mood-dance .dl-anim{animation:dl-dance .8s ease-in-out infinite}
+.dl-animated.dl-mood-egg .dl-anim{animation:dl-wobble 2.4s ease-in-out infinite}
+.dl-animated .dl-z{animation:dl-float 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.dl-svg *{animation:none!important}}
+</style><ellipse class="dl-glow" cx="60" cy="70" rx="56" ry="50" fill="url(#shipwyrm-glow)"/><ellipse cx="60" cy="110" rx="26" ry="4" fill="#000" opacity=".12"/><g class="dl-anim"><path class="dl-accent" d="M26 62 l-16 -10 l6 20 z M94 62 l16 -10 l-6 20 z"/><path class="dl-accent" d="M44 42 l-4 -12 l10 8 z M76 42 l4 -12 l-10 8 z"/><path class="dl-stem" d="M48 40 Q42 26 40 14 M72 40 Q78 26 80 14"/><circle class="dl-accent dl-tip" cx="40" cy="14" r="4.5"/><circle class="dl-accent dl-tip" cx="80" cy="14" r="4.5"/><ellipse class="dl-body" cx="60" cy="70" rx="36" ry="31"/><rect x="80" y="86" width="20" height="14" rx="2" fill="#a0612b"/><rect x="80" y="86" width="20" height="5" rx="2" fill="#f5c542"/><rect x="88" y="90" width="4" height="4" fill="#f5c542"/><path class="dl-line" d="M41 64 q6 -8 12 0 M67 64 q6 -8 12 0"/><ellipse class="dl-cheek" cx="38" cy="74" rx="6" ry="3.5"/><ellipse class="dl-cheek" cx="82" cy="74" rx="6" ry="3.5"/><path class="dl-line" d="M52 76 q8 9 16 0"/></g></svg><text x="455" y="146" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#7a6352">shipwyrm</text><svg x="525" y="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="nocturne-title" class="dl-svg dl-mood-happy dl-species-nocturne dl-animated" style="--dl-body:#3a4175;--dl-accent:#ffe27a;--dl-glow:#6b74c9;--dl-ink:#f1f1ff;--dl-cheek:#c58bd8"><title id="nocturne-title">A nocturne daemonling, feeling happy</title><defs><radialGradient id="nocturne-glow"><stop offset="0" stop-color="#6b74c9" stop-opacity=".9"/><stop offset="1" stop-color="#6b74c9" stop-opacity="0"/></radialGradient></defs><style>
+.dl-svg .dl-body{fill:var(--dl-body)}
+.dl-svg .dl-accent{fill:var(--dl-accent)}
+.dl-svg .dl-ink{fill:var(--dl-ink)}
+.dl-svg .dl-line{stroke:var(--dl-ink);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-stem{stroke:var(--dl-accent);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-cheek{fill:var(--dl-cheek);opacity:.7}
+.dl-svg .dl-anim,.dl-svg .dl-tip{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dl-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes dl-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+@keyframes dl-shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
+@keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
+@keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
+.dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
+.dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
+.dl-animated.dl-mood-sad .dl-anim{animation:dl-breathe 5s ease-in-out infinite}
+.dl-animated.dl-mood-sick .dl-anim{animation:dl-shiver .6s linear infinite}
+.dl-animated.dl-mood-sleeping .dl-anim,.dl-animated.dl-mood-cocoon .dl-anim{animation:dl-breathe 4s ease-in-out infinite}
+.dl-animated.dl-mood-dance .dl-anim{animation:dl-dance .8s ease-in-out infinite}
+.dl-animated.dl-mood-egg .dl-anim{animation:dl-wobble 2.4s ease-in-out infinite}
+.dl-animated .dl-z{animation:dl-float 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.dl-svg *{animation:none!important}}
+</style><ellipse class="dl-glow" cx="60" cy="70" rx="56" ry="50" fill="url(#nocturne-glow)"/><ellipse cx="60" cy="110" rx="26" ry="4" fill="#000" opacity=".12"/><g class="dl-anim"><path class="dl-stem" d="M48 40 Q42 26 40 14 M72 40 Q78 26 80 14"/><circle class="dl-accent dl-tip" cx="40" cy="14" r="4.5"/><circle class="dl-accent dl-tip" cx="80" cy="14" r="4.5"/><ellipse class="dl-body" cx="60" cy="70" rx="36" ry="31"/><circle class="dl-accent" cx="60" cy="47" r="7"/><circle class="dl-body" cx="63.5" cy="45" r="6"/><path class="dl-line" d="M41 64 q6 -8 12 0 M67 64 q6 -8 12 0"/><ellipse class="dl-cheek" cx="38" cy="74" rx="6" ry="3.5"/><ellipse class="dl-cheek" cx="82" cy="74" rx="6" ry="3.5"/><path class="dl-line" d="M52 76 q8 9 16 0"/></g></svg><text x="585" y="146" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#7a6352">nocturne</text></svg>

@@ -96,7 +96,7 @@ export const PET_CSS = `
 @keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
 @keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 @keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
-@keyframes dl-float{0%{opacity:0;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
 .dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
 .dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
 .dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
@@ -120,11 +120,15 @@ function eyes(mood: Mood, species: Species): string {
       return '<path class="dl-line" d="M41 63 q6 5 12 0 M67 63 q6 5 12 0"/>';
     case 'sad':
       return (
-        '<path class="dl-line" d="M40 55 l10 4 M80 55 l-10 4"/>' +
+        '<path class="dl-line" d="M40 58 l10 -5 M80 58 l-10 -5"/>' +
         '<circle class="dl-ink" cx="47" cy="65" r="4"/><circle class="dl-ink" cx="73" cy="65" r="4"/>'
       );
     case 'sick':
-      return '<path class="dl-line" d="M42 60 l10 8 M52 60 l-10 8 M68 60 l10 8 M78 60 l-10 8"/>';
+      // Dizzy, droopy eyes: unwell, never "dead".
+      return (
+        '<path class="dl-line" d="M41 66 q6 -6 12 0 M67 66 q6 -6 12 0"/>' +
+        '<circle class="dl-ink" cx="47" cy="66" r="2.5"/><circle class="dl-ink" cx="73" cy="66" r="2.5"/>'
+      );
     default:
       return (
         `<circle class="dl-ink" cx="47" cy="63" r="${r}"/><circle class="dl-ink" cx="73" cy="63" r="${r}"/>` +
