@@ -205,3 +205,35 @@ alternatives considered, why. Newest decisions are appended at the bottom of eac
   `dmn event ci-passed` alongside `dmn event commit`. Running `dmn` with no arguments shows status (or
   help if there is no pet).
 - **Why:** Settings must be changeable somewhere in the CLI; CI scripts need a way to celebrate.
+
+## M3 — VS Code extension
+
+### D-026 The extension appends `SESSION_COMPLETED` when the timer runs out
+
+- **Decision:** Every second the extension re-reads the log if it changed on disk (size + mtime),
+  and if the active session's planned end has passed it appends `SESSION_COMPLETED`. The CLI does
+  the same at the end of its countdown; the reducer ignores the second completion (D-011).
+- **Alternatives:** Only the surface that started a session may complete it.
+- **Why:** The editor observes focus for the whole session, so its completion is legitimate, and a
+  session started in a terminal that was later closed still gets credited while VS Code is open.
+
+### D-027 Focus sensing is a pure state machine with a notification budget
+
+- **Decision:** `apps/vscode/src/focus.ts` turns window focus/blur, session start/stop and ticks
+  into effects (`distraction-detected`, `offer-honest-end`). The distraction is reported on return
+  (so the exact seconds away are known). Unsolicited notifications are limited to two per local day.
+- **Why:** Testable without VS Code, auditable for privacy, and kind by default.
+
+### D-028 VS Code settings feed the shared pet
+
+- **Decision:** Changing `daemonling.dailyGoalMinutes` or `daemonling.graceSeconds` appends a
+  `SETTINGS_CHANGED` event, so the CLI sees the same goal and grace period.
+- **Why:** One pet, one set of rules, whichever surface you use.
+
+### D-029 Activation is tested against an in-memory `vscode` stub
+
+- **Decision:** Vitest aliases `vscode` to `apps/vscode/test/vscode-stub.ts` and drives
+  `activate()` end to end (hatch → start → blur/focus → distraction → den → menu → settings).
+- **Alternatives:** `@vscode/test-electron` (downloads VS Code; needs a display and network in CI).
+- **Why:** Fast and offline; the remaining risk (real VS Code API behaviour) is small and covered by
+  manual testing of the `.vsix`.

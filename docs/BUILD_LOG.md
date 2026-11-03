@@ -111,3 +111,37 @@ happier afterwards. We spent real effort on the boring parts — a crash-safe lo
 `cat`, a lock so the editor and the terminal never fight, and a prompt fast enough to run on every
 keystroke — because trust in a local-first tool is earned by never losing someone's data or slowing
 down their shell.
+
+## M3 — VS Code extension (2026-11-03)
+
+**What was built.** `apps/vscode`: a status-bar pet showing its face, condition (or streak) and the
+time left in a session; a click opens a quick pick (Start 25/50/90, I got distracted, Take a break,
+Pet, Show status). Focus sensing via `window.state.focused` only, through a pure state machine:
+away longer than the grace period → `DISTRACTION_DETECTED`; away more than five minutes → one
+non-modal "end honestly?" notification (budget: two unsolicited notifications per day). A "Daemonling:
+Open Den" webview renders the SVG pet, stats and actions under a strict nonce-based CSP. Settings:
+`daemonling.graceSeconds`, `daemonling.dailyGoalMinutes`, `daemonling.showInStatusBar`. Shares
+`~/.daemonling` with the CLI. Bundled with esbuild (64 KB) and packaged with `vsce` into a 23 KB
+`daemonling-0.1.0.vsix`, uploaded as a CI artifact. `PRIVACY.md` written.
+
+**Key decisions.** D-026 (either surface may complete a session), D-027 (pure focus machine and
+notification budget), D-029 (activation tested with a stub).
+
+**What was hard.** Being useful without being creepy. The extension could know far more than it
+does; we chose one boolean (window focus) and made the code that interprets it a pure function
+small enough to read in a minute. The second hard part was two writers: the CLI and the extension
+both finish sessions, so the reducer's "no active session → ignore" rule (D-011) is what keeps them
+from double-feeding the pet.
+
+**Tests / coverage.** 12 tests for the extension: the focus state machine (grace period, return
+detection, single nudge, session start while unfocused, resets), the notification budget, status
+bar/menu/den rendering, and a full activation run against the `vscode` stub. Workspace total: 134
+tests passing.
+
+**Deferred.** Publishing to the VS Code Marketplace and Open VSX (steps in RUNBOOK.md). An extension
+icon. Testing inside a real VS Code instance in CI.
+
+**Founder's comment.** The editor is where focus actually happens, so it is where a gentle companion
+earns the most trust — or loses it. We designed the extension so we can say, truthfully and
+checkably, that it never looks at your code. That promise is part of the product: privacy-by-design
+is what lets a developer leave Daemonling running all day without a second thought.

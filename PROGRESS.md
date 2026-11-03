@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M3 — VS Code extension (`apps/vscode`): focus-sensing state machine, status bar, den webview.
+**Next action:** M4 — web home (`apps/web`): React PWA with Den, Focus, Stats, Journal, Settings.
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -44,12 +44,12 @@ Every checkpoint commit updates it.
 
 ## M3 — VS Code extension
 
-- [ ] Status bar item (face + condition + remaining time) + quick pick
-- [ ] Focus-sensing state machine (pure) + tests
-- [ ] Shared store with CLI
-- [ ] "Daemonling: Open Den" webview with SVG pet
-- [ ] Settings: graceSeconds, dailyGoalMinutes, showInStatusBar
-- [ ] esbuild bundle + `.vsix` packaging in CI
+- [x] Status bar item (face + condition + remaining time) + quick pick
+- [x] Focus-sensing state machine (pure) + tests
+- [x] Shared store with CLI
+- [x] "Daemonling: Open Den" webview with SVG pet
+- [x] Settings: graceSeconds, dailyGoalMinutes, showInStatusBar
+- [x] esbuild bundle + `.vsix` packaging in CI
 
 ## M4 — Web home
 
