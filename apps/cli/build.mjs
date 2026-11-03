@@ -1,6 +1,8 @@
 // Bundles the CLI into a single ESM file so `dmn prompt` starts fast.
 import { build } from 'esbuild';
-import { chmodSync } from 'node:fs';
+import { chmodSync, rmSync } from 'node:fs';
+
+rmSync('dist', { recursive: true, force: true });
 
 await build({
   entryPoints: ['src/bin.ts'],

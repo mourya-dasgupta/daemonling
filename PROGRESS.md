@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M6 — write the document pack (README, GUIDE, RUNBOOK, ROADMAP, PORTFOLIO, PITCH + deck, DUE_DILIGENCE, PRODUCT_SPEC, GAME_DESIGN, ARCHITECTURE, SECURITY, CONTRIBUTING, CHANGELOG).
+**Next action:** M6 — remaining docs: PITCH + deck.html, DUE_DILIGENCE, PORTFOLIO, SECURITY, CONTRIBUTING, CHANGELOG, retrospectives.
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -70,17 +70,17 @@ Every checkpoint commit updates it.
 
 ## M6 — Document pack
 
-- [ ] README.md
-- [ ] docs/GUIDE.md
-- [ ] docs/RUNBOOK.md
-- [ ] docs/ROADMAP.md
+- [x] README.md
+- [x] docs/GUIDE.md
+- [x] docs/RUNBOOK.md
+- [x] docs/ROADMAP.md
 - [ ] docs/PORTFOLIO.md
 - [ ] docs/PITCH.md
 - [ ] docs/pitch/deck.html
 - [ ] docs/DUE_DILIGENCE.md
-- [ ] docs/PRODUCT_SPEC.md
-- [ ] docs/GAME_DESIGN.md
-- [ ] docs/ARCHITECTURE.md
+- [x] docs/PRODUCT_SPEC.md
+- [x] docs/GAME_DESIGN.md
+- [x] docs/ARCHITECTURE.md
 - [ ] PRIVACY.md, SECURITY.md, CONTRIBUTING.md, CHANGELOG.md, LICENSE
 - [ ] BUILD_LOG + DECISIONS retrospective
 
