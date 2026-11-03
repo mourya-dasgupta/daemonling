@@ -296,3 +296,33 @@ alternatives considered, why. Newest decisions are appended at the bottom of eac
 - **Decision:** `dmn duck` works from day one; learning the `rubber-duck` trick (7-day streak) is a
   celebration, not a gate. BYO-LLM duck mode stays on the roadmap only.
 - **Why:** Never withhold a genuinely useful debugging aid as a reward.
+
+## M6 — Document pack
+
+### D-038 The CLI is published self-contained
+
+- **Decision:** Moved `commander` and the `@daemonling/*` packages to the CLI's `devDependencies`
+  (esbuild bundles them), cleaned `dist/` on every build, and added a package README.
+- **Why:** `npm pack` now yields a 12-file, ~56 KB tarball with no runtime dependencies and no
+  `workspace:` specifiers, so the npm release in the runbook is a straight `npm publish`.
+
+### D-039 Install from source via a symlink until npm
+
+- **Decision:** The README's quick start symlinks `apps/cli/dist/dmn.js` onto `PATH`.
+- **Why:** Works today (verified), and `dmn` must be on `PATH` for the git hook.
+
+### D-040 Market claims
+
+- **Decision:** Docs cite only the founder-provided market facts, always with links and labelled as
+  third-party estimates. The only computed number is arithmetic on our own price ("every 10,000
+  annual Pro subscribers ≈ $390K ARR"), explicitly marked illustrative. Traction is
+  `[TBD after beta]` everywhere.
+- **Why:** Credibility with investors depends on never overstating.
+
+### D-041 Deck is generated once from our own renderer
+
+- **Decision:** `docs/pitch/deck.html` is a single static file; its pet SVGs were produced by
+  `@daemonling/sprites` and pasted inline. Citation links are the only URLs; there are no external
+  assets.
+- **Why:** Opens offline, prints to a 10-page PDF (verified in headless Chromium), and shows the real
+  product art.

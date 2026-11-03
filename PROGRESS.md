@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M6 — remaining docs: PITCH + deck.html, DUE_DILIGENCE, PORTFOLIO, SECURITY, CONTRIBUTING, CHANGELOG, retrospectives.
+**Next action:** M7 — clean frozen-lockfile run, CLI smoke transcript, docs-vs-code review, docs/PULL_REQUEST.md, mark PR ready.
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -74,15 +74,15 @@ Every checkpoint commit updates it.
 - [x] docs/GUIDE.md
 - [x] docs/RUNBOOK.md
 - [x] docs/ROADMAP.md
-- [ ] docs/PORTFOLIO.md
-- [ ] docs/PITCH.md
-- [ ] docs/pitch/deck.html
-- [ ] docs/DUE_DILIGENCE.md
+- [x] docs/PORTFOLIO.md
+- [x] docs/PITCH.md
+- [x] docs/pitch/deck.html
+- [x] docs/DUE_DILIGENCE.md
 - [x] docs/PRODUCT_SPEC.md
 - [x] docs/GAME_DESIGN.md
 - [x] docs/ARCHITECTURE.md
-- [ ] PRIVACY.md, SECURITY.md, CONTRIBUTING.md, CHANGELOG.md, LICENSE
-- [ ] BUILD_LOG + DECISIONS retrospective
+- [x] PRIVACY.md, SECURITY.md, CONTRIBUTING.md, CHANGELOG.md, LICENSE
+- [ ] BUILD_LOG + DECISIONS retrospective (written in M7 with final numbers)
 
 ## M7 — Hardening + PR
 

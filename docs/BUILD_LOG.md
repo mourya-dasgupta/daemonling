@@ -220,3 +220,35 @@ developers for developers: it notices commits, it celebrates green builds, it si
 README, and it listens when you are stuck. Each one is small, but together they turn a cute pet into
 something that belongs in a developer's workflow — and every one of them works without sending a
 single byte off your machine.
+
+## M6 — Document pack (2026-11-03)
+
+**What was built.** The full founder pack, written against the code: `README.md`, `docs/GUIDE.md`,
+`docs/GAME_DESIGN.md` (every rule and constant in tables, evolution matrix, Mermaid condition
+diagram, beta tuning plan), `docs/ARCHITECTURE.md` (package and event-sourcing diagrams, store
+format, CLI/VS Code concurrency, future server-ordered sync, threat model), `docs/RUNBOOK.md`,
+`docs/ROADMAP.md` (phases with gates, 12-feature backlog with shipped markers, Mermaid gantt),
+`docs/PRODUCT_SPEC.md`, `docs/PITCH.md` + `docs/pitch/deck.html` (10 slides, arrow keys, `N` for
+notes, prints to PDF), `docs/DUE_DILIGENCE.md` (YC answers + 30 investor questions),
+`docs/PORTFOLIO.md`, `SECURITY.md`, `CONTRIBUTING.md`, `CHANGELOG.md`. Example art and screenshots
+live in `docs/assets/`. Also: the CLI package is now self-contained for npm (D-038).
+
+**Key decisions.** D-038 (self-contained CLI package), D-040 (market claims discipline), D-041
+(deck generated from our renderer).
+
+**What was hard.** Writing persuasive documents without inventing anything. Every market number had
+to come from the provided sources with links and an "estimate" label, and every product claim had
+to be checked against the code (for example, the guide's prompt examples, the command list, and the
+exact rule numbers in GAME_DESIGN.md come straight from `config.ts`).
+
+**Tests / coverage.** No code-path changes beyond the CLI packaging; the suite stays green (143
+tests). The deck was verified in headless Chromium: navigation, notes toggle, no page errors, and a
+10-page PDF.
+
+**Deferred.** Real traction numbers, founder details and quotes — all marked as placeholders.
+
+**Founder's comment.** A company is a story that the code has to keep true. These documents are how
+we will recruit beta users, contributors and investors, so they had to be both warm and rigorous: a
+user guide that a tired developer can skim, a game design document a contributor can tune from, and
+a pitch that tells the truth about being pre-launch. Writing them also forced us to re-check every
+promise — which is exactly what a founder should do before asking anyone for their time or money.
