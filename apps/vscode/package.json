@@ -1,0 +1,107 @@
+{
+  "name": "daemonling-vscode",
+  "displayName": "Daemonling",
+  "description": "A tiny daemon that lives on your focus \u2014 a virtual pet in your status bar that thrives on focused, balanced work.",
+  "version": "0.1.0",
+  "publisher": "daemonling",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mourya-dasgupta/daemonling"
+  },
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "focus",
+    "pomodoro",
+    "virtual pet",
+    "productivity"
+  ],
+  "main": "./dist/extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "daemonling.menu",
+        "title": "Show Menu",
+        "category": "Daemonling"
+      },
+      {
+        "command": "daemonling.init",
+        "title": "Hatch a Daemon",
+        "category": "Daemonling"
+      },
+      {
+        "command": "daemonling.start",
+        "title": "Start Focus Session",
+        "category": "Daemonling"
+      },
+      {
+        "command": "daemonling.distracted",
+        "title": "I Got Distracted (End Honestly)",
+        "category": "Daemonling"
+      },
+      {
+        "command": "daemonling.break",
+        "title": "Take a Break",
+        "category": "Daemonling"
+      },
+      {
+        "command": "daemonling.pet",
+        "title": "Pet",
+        "category": "Daemonling"
+      },
+      {
+        "command": "daemonling.openDen",
+        "title": "Open Den",
+        "category": "Daemonling"
+      }
+    ],
+    "configuration": {
+      "title": "Daemonling",
+      "properties": {
+        "daemonling.graceSeconds": {
+          "type": "number",
+          "default": 90,
+          "minimum": 10,
+          "maximum": 3600,
+          "description": "Seconds you can be away from VS Code during a focus session before your daemon notices. Only focus/blur timestamps are used \u2014 never file names or contents."
+        },
+        "daemonling.dailyGoalMinutes": {
+          "type": "number",
+          "default": 50,
+          "minimum": 10,
+          "maximum": 480,
+          "description": "Focus minutes per day that count toward your streak (shared with the dmn CLI)."
+        },
+        "daemonling.showInStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show your daemon in the status bar."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "package": "vsce package --no-dependencies --out daemonling-0.1.0.vsix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@daemonling/core": "workspace:*",
+    "@daemonling/sprites": "workspace:*",
+    "@daemonling/store": "workspace:*",
+    "@types/vscode": "~1.95.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.25.12"
+  }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="170" viewBox="0 0 495 170" role="img" aria-labelledby="card-title"><title id="card-title">Pixel, a shipwyrm daemonling (adult). 40-day streak. Thriving.</title><style>:root{color-scheme:light dark}.bg{fill:#fff8ef;stroke:#ead9c4}.title{fill:#3b2a20}.muted{fill:#7a6352}.track{fill:#f0e2d0}.fill{fill:#e0793f}.chip{fill:#ffe9d2}.chip-text{fill:#9a4a1c}@media (prefers-color-scheme: dark){.bg{fill:#1f1a24;stroke:#3a3142}.title{fill:#f6ece1}.muted{fill:#b9a99a}.track{fill:#3a3142}.fill{fill:#f3a26b}.chip{fill:#3d2b25}.chip-text{fill:#ffcfa8}}text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}</style><rect class="bg" x="0.5" y="0.5" width="494" height="169" rx="14"/><svg x="18" y="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="130" height="130" role="img" aria-labelledby="card-pet-title" class="dl-svg dl-mood-happy dl-species-shipwyrm dl-animated" style="--dl-body:#9fe0d6;--dl-accent:#1b8a78;--dl-glow:#a8f0e0;--dl-ink:#163a35;--dl-cheek:#ff9e9e"><title id="card-pet-title">A shipwyrm daemonling, feeling happy</title><defs><radialGradient id="card-pet-glow"><stop offset="0" stop-color="#a8f0e0" stop-opacity=".9"/><stop offset="1" stop-color="#a8f0e0" stop-opacity="0"/></radialGradient></defs><style>
+.dl-svg .dl-body{fill:var(--dl-body)}
+.dl-svg .dl-accent{fill:var(--dl-accent)}
+.dl-svg .dl-ink{fill:var(--dl-ink)}
+.dl-svg .dl-line{stroke:var(--dl-ink);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-stem{stroke:var(--dl-accent);stroke-width:3;stroke-linecap:round;fill:none}
+.dl-svg .dl-cheek{fill:var(--dl-cheek);opacity:.7}
+.dl-svg .dl-anim,.dl-svg .dl-tip{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dl-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes dl-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.97)}}
+@keyframes dl-shiver{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
+@keyframes dl-dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-6px)}}
+@keyframes dl-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes dl-glow{0%,100%{opacity:.55}50%{opacity:.9}}
+@keyframes dl-float{0%{opacity:.5;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.dl-animated .dl-glow{animation:dl-glow 4s ease-in-out infinite}
+.dl-animated.dl-mood-idle .dl-anim{animation:dl-bob 3s ease-in-out infinite}
+.dl-animated.dl-mood-happy .dl-anim{animation:dl-bob 1.6s ease-in-out infinite}
+.dl-animated.dl-mood-sad .dl-anim{animation:dl-breathe 5s ease-in-out infinite}
+.dl-animated.dl-mood-sick .dl-anim{animation:dl-shiver .6s linear infinite}
+.dl-animated.dl-mood-sleeping .dl-anim,.dl-animated.dl-mood-cocoon .dl-anim{animation:dl-breathe 4s ease-in-out infinite}
+.dl-animated.dl-mood-dance .dl-anim{animation:dl-dance .8s ease-in-out infinite}
+.dl-animated.dl-mood-egg .dl-anim{animation:dl-wobble 2.4s ease-in-out infinite}
+.dl-animated .dl-z{animation:dl-float 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.dl-svg *{animation:none!important}}
+</style><ellipse class="dl-glow" cx="60" cy="70" rx="56" ry="50" fill="url(#card-pet-glow)"/><ellipse cx="60" cy="110" rx="26" ry="4" fill="#000" opacity=".12"/><g class="dl-anim"><path class="dl-accent" d="M26 62 l-16 -10 l6 20 z M94 62 l16 -10 l-6 20 z"/><path class="dl-accent" d="M44 42 l-4 -12 l10 8 z M76 42 l4 -12 l-10 8 z"/><path class="dl-stem" d="M48 40 Q42 26 40 14 M72 40 Q78 26 80 14"/><circle class="dl-accent dl-tip" cx="40" cy="14" r="4.5"/><circle class="dl-accent dl-tip" cx="80" cy="14" r="4.5"/><ellipse class="dl-body" cx="60" cy="70" rx="36" ry="31"/><rect x="80" y="86" width="20" height="14" rx="2" fill="#a0612b"/><rect x="80" y="86" width="20" height="5" rx="2" fill="#f5c542"/><rect x="88" y="90" width="4" height="4" fill="#f5c542"/><path class="dl-line" d="M41 64 q6 -8 12 0 M67 64 q6 -8 12 0"/><ellipse class="dl-cheek" cx="38" cy="74" rx="6" ry="3.5"/><ellipse class="dl-cheek" cx="82" cy="74" rx="6" ry="3.5"/><path class="dl-line" d="M52 76 q8 9 16 0"/></g></svg><text class="title" x="170" y="44" font-size="22" font-weight="700">Pixel</text><text class="muted" x="170" y="66" font-size="13">shipwyrm · adult · 4800 xp</text><rect class="chip" x="170" y="76" width="76" height="20" rx="10"/><text class="chip-text" x="180" y="90" font-size="12" font-weight="600">Thriving</text><text class="title" x="256" y="90" font-size="13" font-weight="600">40-day streak</text><text class="muted" x="170" y="116" font-size="11">Satiety</text><rect class="track" x="222" y="108" width="120" height="9" rx="4.5"/><rect class="fill" x="222" y="108" width="112" height="9" rx="4.5"/><text class="muted" x="170" y="132" font-size="11">Mood</text><rect class="track" x="222" y="124" width="120" height="9" rx="4.5"/><rect class="fill" x="222" y="124" width="119" height="9" rx="4.5"/><text class="muted" x="170" y="156" font-size="11">fed by focus · daemonling</text></svg>

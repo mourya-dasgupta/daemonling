@@ -1,0 +1,41 @@
+{
+  "name": "daemonling",
+  "version": "0.1.0",
+  "description": "dmn \u2014 a tiny daemon that lives on your focus. A virtual pet for your terminal.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "dmn": "./dist/dmn.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "focus",
+    "pomodoro",
+    "virtual-pet",
+    "cli",
+    "developer-tools"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@daemonling/core": "workspace:*",
+    "@daemonling/sprites": "workspace:*",
+    "@daemonling/store": "workspace:*",
+    "commander": "^14.0.3",
+    "esbuild": "^0.25.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mourya-dasgupta/daemonling",
+    "directory": "apps/cli"
+  }
+}
