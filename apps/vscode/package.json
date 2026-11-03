@@ -1,0 +1,45 @@
+{
+  "name": "daemonling-vscode",
+  "displayName": "Daemonling",
+  "description": "A tiny daemon that lives on your focus — a virtual pet in your status bar that thrives on focused, balanced work.",
+  "version": "0.1.0",
+  "publisher": "daemonling",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mourya-dasgupta/daemonling"
+  },
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "focus",
+    "pomodoro",
+    "virtual pet",
+    "productivity"
+  ],
+  "main": "./dist/extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {},
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "package": "vsce package --no-dependencies --out daemonling-0.1.0.vsix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@daemonling/core": "workspace:*",
+    "@daemonling/sprites": "workspace:*",
+    "@daemonling/store": "workspace:*",
+    "@types/vscode": "~1.95.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.25.12"
+  }
+}

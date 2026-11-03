@@ -1,0 +1,36 @@
+{
+  "name": "daemonling",
+  "version": "0.1.0",
+  "description": "dmn — a tiny daemon that lives on your focus. A virtual pet for your terminal.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "dmn": "./dist/dmn.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "focus",
+    "pomodoro",
+    "virtual-pet",
+    "cli",
+    "developer-tools"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@daemonling/core": "workspace:*",
+    "@daemonling/sprites": "workspace:*",
+    "@daemonling/store": "workspace:*",
+    "commander": "^14.0.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12"
+  }
+}
