@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M1 — implement the core engine in `packages/core` (config, types, reducer, rules, tests).
+**Next action:** M2 — `packages/store` (file + IndexedDB adapters) and the `dmn` CLI.
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -19,18 +19,18 @@ Every checkpoint commit updates it.
 
 ## M1 — Core engine (`packages/core`)
 
-- [ ] `config.ts` with every constant
-- [ ] Types: `PetState`, events, stages, species, conditions
-- [ ] Time helpers (local day / hour in user timezone, awake-hours integration)
-- [ ] Reducer: decay, sessions, honest vs silent stop, distraction detected, breaks, overwork
-- [ ] Commits / CI, health & hunger, petting, vacation, settings
-- [ ] Conditions, hibernation + waking
-- [ ] Streaks + freezes, tricks, stages, evolution
-- [ ] `petSays`, `summarize`, `buildWeeklyJournal`, week stats, rubber-duck question picker
-- [ ] Unit tests for every rule + honesty-pays test
-- [ ] 60-day persona simulation test
-- [ ] Coverage ≥ 90% lines and branches
-- [ ] Draft PR opened (or skipped if no PR tool)
+- [x] `config.ts` with every constant
+- [x] Types: `PetState`, events, stages, species, conditions
+- [x] Time helpers (local day / hour in user timezone, awake-hours integration)
+- [x] Reducer: decay, sessions, honest vs silent stop, distraction detected, breaks, overwork
+- [x] Commits / CI, health & hunger, petting, vacation, settings
+- [x] Conditions, hibernation + waking
+- [x] Streaks + freezes, tricks, stages, evolution
+- [x] `petSays`, `summarize`, `buildWeeklyJournal`, week stats, rubber-duck question picker
+- [x] Unit tests for every rule + honesty-pays test
+- [x] 60-day persona simulation test
+- [x] Coverage ≥ 90% lines and branches
+- [x] Draft PR opened (or skipped if no PR tool)
 
 ## M2 — Store + CLI
 
