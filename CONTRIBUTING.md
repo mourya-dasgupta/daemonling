@@ -20,7 +20,7 @@ script.
    (`feat(core): …`, `fix(cli): …`, `docs: …`).
 3. Add or update tests. `packages/core` must stay at ≥ 90% line and branch coverage (CI enforces
    it); every game rule needs a test.
-4. Run `pnpm ci` (lint, typecheck, test, build) and `pnpm format` before pushing.
+4. Run `pnpm check` (lint, typecheck, test, build) and `pnpm format` before pushing.
 5. Record non-obvious decisions in [docs/DECISIONS.md](docs/DECISIONS.md) and user-visible changes in
    [CHANGELOG.md](CHANGELOG.md).
 

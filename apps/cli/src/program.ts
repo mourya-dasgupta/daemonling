@@ -38,6 +38,11 @@ function intArg(name: string, min: number, max: number) {
   };
 }
 
+/** `1 day`, `2 days`. */
+function plural(n: number, word: string): string {
+  return `${n} ${word}${n === 1 ? '' : 's'}`;
+}
+
 /** Loads the pet or throws a friendly error. */
 function requirePet(ctx: Context): PetState {
   const { state } = ctx.store.loadSync();
@@ -240,7 +245,7 @@ export function buildProgram(ctx: Context): Command {
           `${c.bold(state.name)} · ${SPECIES_LABEL[state.species]} · ${state.stage}`,
           `  Sessions      ${l.sessionsCompleted}`,
           `  Focus time    ${Math.round(l.totalFocusMinutes)} minutes`,
-          `  Best streak   ${state.streak.best} days`,
+          `  Best streak   ${plural(state.streak.best, 'day')}`,
           `  Traits        ${Object.entries(state.traits)
             .map(([k, v]) => `${k} ${v}`)
             .join(' · ')}`,
@@ -252,7 +257,7 @@ export function buildProgram(ctx: Context): Command {
         ctx.out(`This week (goal ${state.settings.dailyGoalMinutes}m/day):\n`);
         ctx.out(`${weekChart(week, state.settings.dailyGoalMinutes, c).join('\n')}\n`);
         ctx.out(
-          `  ${week.sessions} sessions · ${week.minutes} minutes · ${week.breaks} breaks · ${week.commits} commits\n`,
+          `  ${plural(week.sessions, 'session')} · ${plural(week.minutes, 'minute')} · ${plural(week.breaks, 'break')} · ${plural(week.commits, 'commit')}\n`,
         );
       }
     });

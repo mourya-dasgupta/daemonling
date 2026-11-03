@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M7 — clean frozen-lockfile run, CLI smoke transcript, docs-vs-code review, docs/PULL_REQUEST.md, mark PR ready.
+**Next action:** Done — all milestones complete. Founder: review and merge PR #1 (https://github.com/mourya-dasgupta/daemonling/pull/1); then start the private beta (see docs/ROADMAP.md).
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -82,12 +82,12 @@ Every checkpoint commit updates it.
 - [x] docs/GAME_DESIGN.md
 - [x] docs/ARCHITECTURE.md
 - [x] PRIVACY.md, SECURITY.md, CONTRIBUTING.md, CHANGELOG.md, LICENSE
-- [ ] BUILD_LOG + DECISIONS retrospective (written in M7 with final numbers)
+- [x] BUILD_LOG + DECISIONS retrospective (written in M7 with final numbers)
 
 ## M7 — Hardening + PR
 
-- [ ] Clean run with `--frozen-lockfile`
-- [ ] CLI smoke test transcript in BUILD_LOG
-- [ ] Docs re-read against code
-- [ ] `docs/PULL_REQUEST.md`
-- [ ] PR ready for review (or instructions to create it)
+- [x] Clean run with `--frozen-lockfile`
+- [x] CLI smoke test transcript in BUILD_LOG
+- [x] Docs re-read against code
+- [x] `docs/PULL_REQUEST.md`
+- [x] PR ready for review (or instructions to create it)

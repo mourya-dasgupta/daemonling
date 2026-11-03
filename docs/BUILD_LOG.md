@@ -252,3 +252,196 @@ we will recruit beta users, contributors and investors, so they had to be both w
 user guide that a tired developer can skim, a game design document a contributor can tune from, and
 a pitch that tells the truth about being pre-launch. Writing them also forced us to re-check every
 promise — which is exactly what a founder should do before asking anyone for their time or money.
+
+## M7 — Hardening and the pull request (2026-11-03)
+
+**What was done.** A clean run from scratch (`rm -rf node_modules dist coverage`, then
+`pnpm install --frozen-lockfile && pnpm lint && pnpm format:check && pnpm typecheck && pnpm test &&
+pnpm build`, plus `.vsix` packaging) — all green. An end-to-end smoke test of the real `dmn` binary
+(installed via a symlink on `PATH`, temporary `DAEMONLING_HOME`, a real git repository with the hook
+installed). Every document was re-read against the code. Fixes from this pass: the root `ci` script
+was renamed to `check` because `pnpm ci` is a reserved, unimplemented pnpm command; plurals in
+`dmn stats` ("1 day", "1 break"). `docs/PULL_REQUEST.md` written; the draft PR updated and marked
+ready.
+
+**Smoke test transcript** (`NO_COLOR=1`; `--test-duration-ms` shortens sessions to real
+milliseconds; paths shortened):
+
+```text
+$ dmn --version
+0.1.0
+
+$ dmn init --name Pixel --timezone UTC --goal 25
+     .--.
+    /    \
+   |  ..  |
+   |      |
+    \    /
+     '--'
+
+An egg appeared! Its name is Pixel.
+Complete 3 focus sessions to hatch it: dmn start
+Data lives in ~/smoke/home (local only, never uploaded).
+
+$ dmn start 25 --task write the parser --test-duration-ms 200
+Pixel is focusing with you for 25 minutes on write the parser. Ctrl+C to stop.
+Session complete! +25 xp
+  › Nom. 25 focused minutes!
+
+$ dmn hook install
+Installed ~/smoke/repo/.git/hooks/post-commit
+Commits made during a focus session now feed your daemon.
+
+$ git commit -m "feat: parser" (during a session)
+
+$ dmn event ci-passed
+
+$ dmn start 25 --test-duration-ms 200
+Pixel is focusing with you for 25 minutes. Ctrl+C to stop.
+Session complete! +25 xp
+  › Nom. 25 focused minutes!
+  › Crack! Hello, world.
+
+$ dmn break 15
+  › Stretch! Water! Sky! Good break.
+
+$ dmn pet
+    *     *
+     \   /
+   .-'"""'-.
+  (  ^   ^  )
+  (   \_/   )
+   '-.___.-'
+  › prrrr…
+
+$ dmn status
+    *     *     Pixel the sprout (hatchling)
+     \   /      thriving
+   .-'"""'-.
+  (  ^   ^  )   "Best. Owner. Ever. Want to do one more session?"
+  (   \_/   )
+   '-.___.-'
+
+  Satiety  ██████████ 100
+  Mood     █████████░  90
+  Health   ██████████ 100
+  Energy   ████████░░  83
+  Bond     ░░░░░░░░░░   4
+
+  XP       75 · juvenile at 300 xp
+  Streak   1 day (best 1, 0 freezes banked)
+  Today    75/25 focus minutes
+
+$ dmn stats --week
+Pixel · sprout · hatchling
+  Sessions      3
+  Focus time    75 minutes
+  Best streak   1 day
+  Traits        depth 0 · sprint 3 · balance 1 · craft 3 · night 0
+This week (goal 25m/day):
+  Mon 11-02  · 0m
+  Tue 11-03  ████████████████████████ 75m ✓
+  Wed 11-04  · 0m
+  Thu 11-05  · 0m
+  Fri 11-06  · 0m
+  Sat 11-07  · 0m
+  Sun 11-08  · 0m
+  3 sessions · 75 minutes · 1 break · 1 commit
+
+$ dmn journal
+Pixel's journal — week of 2026-11-02
+
+  This week we did 3 focus sessions together: 75 minutes of real focus.
+  Our longest session was 25 minutes. I did not blink once.
+  Tuesday was our biggest day, with 75 minutes.
+  Our streak is at 1 day. I keep count on my antennae.
+  You fed me 1 commit treat. Crunchy.
+  We took 1 real break, and my antennae appreciated every one.
+  Whatever next week brings, we will take it one session at a time.
+
+Recent moments:
+  2026-11-03  An egg appeared. Its name is Pixel. It is warm and humming quietly.
+  2026-11-03  Pixel hatched after three focus sessions. First words: "hello, world".
+
+$ printf "my test fails with an error\nworks locally but not in CI\nbye\n" | dmn duck
+Pixel puts on its tiny duck costume and listens. Describe the problem; empty line or "bye" to finish.
+you> Pixel> What did you expect to happen instead?
+you> Pixel> What is different between the environment where it works and where it fails?
+you>
+What you said:
+  You started with: "my test fails with an error"
+  Where you ended up: "works locally but not in CI"
+  2 thoughts out loud. Quack.
+
+$ dmn badge --out pet.svg
+Wrote ~/smoke/repo/pet.svg
+Embed it with: ![Pixel](pet.svg)
+
+$ dmn prompt
+(^o^) Pixel thriving 1d
+
+$ dmn export --out backup.json
+Exported 11 events to backup.json
+
+$ dmn vacation on
+Vacation mode is on. Pixel will rest too. Enjoy!
+
+$ dmn vacation off
+Welcome back! Pixel missed you.
+
+$ dmn hook uninstall
+Removed the Daemonling hook.
+
+```
+
+(The `git commit` line is silent by design: the hook ran `dmn event commit` in the background of a
+live session, and the treat shows up in the journal and stats — "1 commit treat", craft 3 = 1 commit
+
+- 2 for CI. The two plural fixes above are shown already applied.)
+
+**Key decisions.** D-042 (`pnpm check`), D-043 (PR flow).
+
+**What was hard.** Nothing dramatic — which is the point of hardening. The useful surprise was
+`pnpm ci`: a script that worked as `npm run ci` but not as documented, caught only by running the
+docs literally.
+
+**Tests / coverage (final).** 16 test files, **143 tests passing**. Coverage: workspace 96.2% lines
+/ 92.9% branches; `packages/core` **100% lines, 97.6% branches, 100% functions** (gate: 90%);
+store 99.5% lines; sprites 99.7% lines; CLI 90.9% lines; VS Code 92.1% lines; web 91–96% lines.
+CI on GitHub: 7 of 7 runs green before the final push.
+
+**Deferred.** See "Known limitations" and "Follow-ups" in `docs/PULL_REQUEST.md`.
+
+**Founder's comment.** Shipping is a habit, not an event. Before asking anyone to review this, we
+ran everything from a clean slate, used the product the way a stranger would, and read our own docs
+as if we did not write them — and still found two small lies (a broken script name and some bad
+grammar). That is exactly the standard we want for a tool whose whole promise is trust: what we say
+it does, it does.
+
+## Retrospective (2026-11-03)
+
+**What went well.**
+
+- The pure, event-sourced engine paid for itself immediately: the 60-day persona simulation is an
+  ordinary unit test, the CLI and VS Code share one log without a database, and rule bugs found
+  later can be fixed retroactively by replay.
+- Pulling the sprites forward (D-019) avoided placeholder art and let every surface look finished.
+- Measuring instead of guessing: profiling the prompt (ICU start-up), the `Intl` hot path, and the
+  axe audit each turned a vague worry into a specific fix.
+
+**What we would do differently.**
+
+- Write the docs' command examples as executable snippets from day one (the `pnpm ci` slip).
+- Add a real-VS-Code smoke test earlier; the stub-based activation test is fast but cannot catch
+  API-behaviour differences.
+- Decide the npm packaging shape (self-contained bundle, D-038) at M2 rather than M6.
+
+**Risks we are carrying into the beta.**
+
+- Game balance is untested on humans: daily goal, decay rate and the overwork threshold may feel too
+  strict or too loose (tuning plan in GAME_DESIGN.md).
+- The web app keeps a separate pet from the CLI/VS Code (D-031); users may find that confusing until
+  opt-in sync exists.
+- `dmn prompt` is ~10 ms over Node start-up; on slow machines that may still feel heavy in a prompt.
+
+**Numbers.** 8 milestones, 43 recorded decisions, 143 tests, 3 surfaces, 5 species, 0 network calls.

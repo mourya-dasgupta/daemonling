@@ -326,3 +326,32 @@ alternatives considered, why. Newest decisions are appended at the bottom of eac
   assets.
 - **Why:** Opens offline, prints to a 10-page PDF (verified in headless Chromium), and shows the real
   product art.
+
+## M7 — Hardening
+
+### D-042 `pnpm check` instead of `pnpm ci`
+
+- **Decision:** The aggregate script is `check` (lint + typecheck + test + build).
+- **Why:** `pnpm ci` is a reserved pnpm command that errors with "not implemented"; the docs must
+  work when followed literally.
+
+### D-043 PR flow
+
+- **Decision:** A draft PR was opened right after M1 with the GitHub integration available in this
+  environment; at the end its body is replaced with `docs/PULL_REQUEST.md` and it is marked ready
+  for review. Nothing is merged.
+- **Why:** The founder asked for a draft early and one PR into `main`; merging stays a human call.
+
+## Retrospective
+
+The decisions that mattered most, in hindsight:
+
+1. **D-002 / D-004 (source export condition + esbuild bundles)** removed a whole class of build-order
+   problems; tests never needed a prior build.
+2. **D-008 / D-011 (ledger, idempotent completions)** made multi-surface use safe with no server.
+3. **D-017 (time zone offset cache)** — correctness first, then a 10× speed-up without giving up DST
+   and half-hour zones.
+4. **D-031 (web keeps its own pet)** is the decision most likely to be revisited: it is honest and
+   private, but sync will be the most requested Pro feature.
+5. **D-009 (two rules added to the spec)** should be validated in the beta — they are small, but they
+   change how energy and health feel.

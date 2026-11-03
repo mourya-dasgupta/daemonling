@@ -31,7 +31,7 @@ pnpm lint && pnpm typecheck && pnpm test && pnpm build
 | `pnpm test`                               | Vitest across all projects with V8 coverage; fails if core < 90% |
 | `pnpm test:watch`                         | Vitest watch mode                                                |
 | `pnpm build`                              | Builds every package in dependency order                         |
-| `pnpm ci`                                 | lint + typecheck + test + build                                  |
+| `pnpm check`                              | lint + typecheck + test + build                                  |
 | `pnpm --filter daemonling build`          | Bundle the CLI to `apps/cli/dist/dmn.js`                         |
 | `pnpm --filter daemonling-vscode package` | Build `apps/vscode/daemonling-0.1.0.vsix`                        |
 | `pnpm --filter web build` / `preview`     | Build / locally preview the web app                              |
@@ -54,7 +54,7 @@ pnpm lint && pnpm typecheck && pnpm test && pnpm build
 1. Make sure `main` is green and `CHANGELOG.md` has the new version.
 2. Bump versions consistently: `apps/cli/package.json`, `VERSION` in `apps/cli/src/program.ts`,
    and the package/extension versions you are releasing.
-3. `pnpm install --frozen-lockfile && pnpm ci`.
+3. `pnpm install --frozen-lockfile && pnpm check`.
 4. Check the tarball: `cd apps/cli && npm pack --dry-run`. It should contain only `dist/` and
    `package.json`.
 5. The CLI's workspace packages and `commander` are `devDependencies` because esbuild bundles them
