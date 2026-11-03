@@ -149,3 +149,59 @@ alternatives considered, why. Newest decisions are appended at the bottom of eac
   `summarize` are in `packages/core`.
 - **Why:** The CLI, VS Code and web app all show the same numbers and words, and core's coverage gate
   protects them.
+
+## M2 — Store + CLI
+
+### D-019 Sprites built early
+
+- **Decision:** Built `packages/sprites` (ASCII, SVG, README card) during M2 rather than M5.
+- **Why:** `dmn start`, `dmn status` and `dmn badge` need the art; building it once avoids a
+  placeholder pass.
+
+### D-020 Store layout and locking
+
+- **Decision:** `~/.daemonling/events.jsonl` (one JSON event per line, each tagged `"v": 2`),
+  `snapshot.json` (cached state + event count), and `events.lock` (exclusive `open(…, 'wx')` lock;
+  locks older than 10 s are considered abandoned). Snapshots are written to a temp file and
+  renamed. Unreadable lines (e.g. a torn final write) are skipped, not fatal.
+- **Alternatives:** SQLite (native dependency, harder to inspect); a single JSON file rewritten on
+  every event (lossy on crash).
+- **Why:** Human-readable, append-only, trivially backed up, and safe for the CLI and the VS Code
+  extension writing at the same time.
+
+### D-021 Example migration
+
+- **Decision:** Record version 1 is a documented pre-release shape (`kind`/`ts`, `SESSION_DONE`,
+  `mins`); `migrateRecord` upgrades it to version 2 on read. Records without `v` are treated as v1.
+- **Why:** The brief asks for schema versioning with one example migration; this proves the path
+  without inventing users who never existed.
+
+### D-022 `dmn start` writes `SESSION_STARTED` immediately
+
+- **Decision:** The start event is persisted before the countdown, so VS Code and `dmn prompt` see
+  the running session. Re-running `dmn start` while a session is running re-attaches to it.
+  Ctrl+C asks "Were you distracted?"; "y" records `DISTRACTION_REPORTED`, anything else
+  `SESSION_ABANDONED`.
+- **Why:** One shared truth across surfaces; closing a terminal is recoverable.
+
+### D-023 `dmn break` logs immediately
+
+- **Decision:** `dmn break [minutes]` records the break when typed (no break timer).
+- **Alternatives:** A break countdown that only credits the break at the end.
+- **Why:** Simpler, and breaks are low-stakes; a timer can come later if beta users ask.
+
+### D-024 `dmn prompt` fast path
+
+- **Decision:** The bundle is split; `dmn prompt` loads only the snapshot reader and a tiny
+  formatter, reads the cached snapshot as-is (no decay replay, no time zone math — ICU start-up alone
+  costs ~15 ms).
+- **Measured:** our code adds ~10 ms on top of bare `node` start-up. In the CI container bare
+  `node -e 0` takes ~40 ms, so the prompt is ~50 ms wall there; on a typical laptop it is well under
+  50 ms.
+
+### D-025 Extra CLI commands
+
+- **Decision:** Added `dmn settings` (show/change goal, bedtime, wake, grace, time zone, name) and
+  `dmn event ci-passed` alongside `dmn event commit`. Running `dmn` with no arguments shows status (or
+  help if there is no pet).
+- **Why:** Settings must be changeable somewhere in the CLI; CI scripts need a way to celebrate.

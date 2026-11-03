@@ -4,13 +4,19 @@ import { chmodSync } from 'node:fs';
 
 await build({
   entryPoints: ['src/bin.ts'],
-  outfile: 'dist/dmn.js',
+  outdir: 'dist',
+  entryNames: 'dmn',
+  chunkNames: 'chunks/[name]-[hash]',
+  splitting: true,
   bundle: true,
   platform: 'node',
   format: 'esm',
   target: 'node20',
   conditions: ['daemonling-source'],
-  banner: { js: '#!/usr/bin/env node' },
+  banner: {
+    // CommonJS dependencies (commander) need `require` inside an ESM bundle.
+    js: "#!/usr/bin/env node\nimport { createRequire as __dmnCreateRequire } from 'node:module';\nconst require = __dmnCreateRequire(import.meta.url);",
+  },
   logLevel: 'warning',
 });
 chmodSync('dist/dmn.js', 0o755);

@@ -69,3 +69,45 @@ deterministic, and tested down to every rule. Because state is just a replay of 
 the game during the beta, fix bugs retroactively, and one day sync across devices without ever
 asking users to trust us with more than a list of timestamps. And the honesty test is the soul of
 the company in one assertion: telling your pet you got distracted must always beat quietly quitting.
+
+## M2 — Store, sprites and the `dmn` CLI (2026-11-03)
+
+**What was built.**
+
+- `packages/store`: versioned JSONL record format with validation and a v1 → v2 migration, snapshot
+  caching that replays only the events newer than the snapshot, export/import documents, a
+  `FileStore` for Node (lock file, atomic snapshot writes, backups on import, snapshot rebuild) and
+  an `IndexedDbStore` for browsers with the same `PetStore` interface.
+- `packages/sprites` (pulled forward from M5): original ASCII frames for every mood (idle, happy,
+  sad, sick, sleeping, cocoon, dance, egg) with species accents, an SVG renderer built from simple
+  shapes with CSS-variable theming and a reduced-motion fallback, and the README card.
+- `apps/cli`: `dmn init`, `start` (live animated countdown; Ctrl+C asks for honesty), `status`,
+  `pet`, `break`, `distracted`, `vacation`, `settings`, `stats [--week]`, `journal`, `duck`,
+  `badge`, `hook install|uninstall`, `event commit|ci-passed`, `prompt`, `export`, `import`. Respects
+  `NO_COLOR`/`FORCE_COLOR`, friendly errors, `--help` everywhere. Bundled with esbuild into
+  `dist/dmn.js` + lazy chunks.
+
+**Key decisions.** D-020 (store layout and locking), D-022 (start persists immediately and
+re-attaches), D-024 (prompt fast path).
+
+**What was hard.** Two things. First, esbuild's ESM output cannot `require()` Node built-ins from a
+CommonJS dependency (commander) — fixed with a `createRequire` banner. Second, the 50 ms budget for
+`dmn prompt`: profiling showed the time was not our code but ICU initialisation for `Intl` time
+zones (~15 ms) and parsing the whole CLI bundle. Code-splitting plus a snapshot-only path brought our
+share down to ~10 ms over bare Node start-up.
+
+**Tests / coverage.** 122 tests across the workspace, all passing. Coverage: core 100% lines /
+97.6% branches; store 99.0% lines; sprites 99.7% lines; CLI 90.7% lines. The CLI integration tests
+drive the real command tree in a temporary `DAEMONLING_HOME` with a fake clock: init → start (via
+the hidden `--test-duration-ms` flag) → status → badge, plus Ctrl+C honesty, hooks in a temp git
+repo, export/import, and the rubber duck. CI also smoke-tests the built binary.
+
+**Deferred.** Publishing to npm (steps in RUNBOOK.md). A break timer. Shell-specific prompt snippets
+beyond the examples in the guide.
+
+**Founder's comment.** The terminal is where our users already live, so `dmn` is the heart of the
+first impression: one command to hatch an egg, one to focus, and a little creature that is visibly
+happier afterwards. We spent real effort on the boring parts — a crash-safe log anyone can read with
+`cat`, a lock so the editor and the terminal never fight, and a prompt fast enough to run on every
+keystroke — because trust in a local-first tool is earned by never losing someone's data or slowing
+down their shell.

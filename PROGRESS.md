@@ -1,6 +1,6 @@
 # Daemonling MVP — Progress
 
-**Next action:** M2 — `packages/store` (file + IndexedDB adapters) and the `dmn` CLI.
+**Next action:** M3 — VS Code extension (`apps/vscode`): focus-sensing state machine, status bar, den webview.
 
 Branch: `feat/daemonling-mvp` → `main`. This file is the source of truth for resuming work.
 Every checkpoint commit updates it.
@@ -34,13 +34,13 @@ Every checkpoint commit updates it.
 
 ## M2 — Store + CLI
 
-- [ ] Store: `events.jsonl` + `snapshot.json`, `DAEMONLING_HOME`, lock + atomic writes
-- [ ] Schema versioning + example migration
-- [ ] IndexedDB adapter (tested with `fake-indexeddb`)
-- [ ] CLI: init, start (live countdown, Ctrl+C honesty prompt), status, pet, break, distracted
-- [ ] CLI: vacation, stats [--week], journal, duck, badge, hook, event, prompt, export/import
-- [ ] `NO_COLOR`, friendly errors, `--help`
-- [ ] Integration tests: init → start (test flag) → status → badge
+- [x] Store: `events.jsonl` + `snapshot.json`, `DAEMONLING_HOME`, lock + atomic writes
+- [x] Schema versioning + example migration
+- [x] IndexedDB adapter (tested with `fake-indexeddb`)
+- [x] CLI: init, start (live countdown, Ctrl+C honesty prompt), status, pet, break, distracted
+- [x] CLI: vacation, stats [--week], journal, duck, badge, hook, event, prompt, export/import
+- [x] `NO_COLOR`, friendly errors, `--help`
+- [x] Integration tests: init → start (test flag) → status → badge
 
 ## M3 — VS Code extension
 
@@ -61,9 +61,10 @@ Every checkpoint commit updates it.
 
 ## M5 — Developer-native extras
 
-- [ ] `renderCard(state)` README card + `dmn badge` + `docs/README-CARD.md`
-- [ ] Commit treats via `dmn hook` + `dmn event commit`
-- [ ] Rubber-duck mode `dmn duck`
+- [x] `renderCard(state)` README card + `dmn badge` (built in M2)
+- [ ] `docs/README-CARD.md`
+- [x] Commit treats via `dmn hook` + `dmn event commit` (built in M2)
+- [x] Rubber-duck mode `dmn duck` (built in M2)
 - [ ] Weekly journal in CLI and web
 - [ ] Tests: card SVG validity, duck selection, hook install/uninstall
 

@@ -29,6 +29,14 @@ jobs:
       - name: Test (coverage gate — core must stay >= 90%)
         run: pnpm test
       - run: pnpm build
+      - name: Smoke test the dmn binary
+        run: |
+          export DAEMONLING_HOME="$(mktemp -d)"
+          node apps/cli/dist/dmn.js --help
+          node apps/cli/dist/dmn.js init --name CI
+          node apps/cli/dist/dmn.js start 1 --test-duration-ms 100
+          node apps/cli/dist/dmn.js status
+          node apps/cli/dist/dmn.js prompt
       - name: Package VS Code extension
         run: pnpm --filter daemonling-vscode package
       - uses: actions/upload-artifact@v4

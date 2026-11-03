@@ -132,12 +132,20 @@ importers:
       '@daemonling/core':
         specifier: workspace:*
         version: link:../core
+    devDependencies:
+      jsdom:
+        specifier: ^26.1.0
+        version: 26.1.0
 
   packages/store:
     dependencies:
       '@daemonling/core':
         specifier: workspace:*
         version: link:../core
+    devDependencies:
+      fake-indexeddb:
+        specifier: ^6.2.7
+        version: 6.2.7
 
 packages:
 

@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "@daemonling/core": "workspace:*"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
   }
 }

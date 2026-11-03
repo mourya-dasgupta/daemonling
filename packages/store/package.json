@@ -11,6 +11,11 @@
       "daemonling-source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./node": {
+      "daemonling-source": "./src/node.ts",
+      "types": "./dist/node.d.ts",
+      "default": "./dist/node.js"
     }
   },
   "files": [
@@ -22,5 +27,8 @@
   },
   "dependencies": {
     "@daemonling/core": "workspace:*"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.2.7"
   }
 }
